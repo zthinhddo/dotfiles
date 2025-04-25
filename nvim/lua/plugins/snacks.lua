@@ -34,6 +34,24 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+    }, -- Enabled & Replace the nerdtree nvim with Snacks.explorer()
+    bigfile = { enabled = true },
+    indent = { enabled = true },
+    picker = {
+      hidden = true,
+      ignored = true,
+      enabled = false,
+      sources = {
+        files = {
+          hidden = true,
+          ignored = true,
+        },
+      },
+    },
+    quickfile = { enabled = false }, -- for singular file opens
     dashboard = {
       width = 60,
       keys = {
@@ -47,6 +65,7 @@ return {
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
       },
       preset = {
+        pick = nil,
         -- Used by the `header` section
         header = header_ascii_img,
       },
@@ -56,14 +75,32 @@ return {
         {
           pane = 2,
           section = "terminal",
-          cmd = "sh -c 'echo; echo; echo; echo; echo; echo; echo; echo; echo; echo; echo; figlet ShengDev'",
+          cmd = "sh -c 'echo; echo; echo; echo; echo; echo; echo; echo; figlet --font mono9 Sheng | sed \"s/^/    /\" | lolcat -a -s 100.0'",
           height = 28,
           width = 60,
           padding = 1,
         },
         { section = "keys", gap = 1, padding = 1 },
         { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        {
+          pane = 2,
+          icon = " ",
+          title = "Projects",
+          section = "projects",
+          indent = 2,
+          padding = 1,
+          pick = true,
+          dirs = {
+            vim.fn.expand("~/repos/om-flm-frontend"),
+            vim.fn.expand("~/repos/om-flm-post-fixture-service"),
+            vim.fn.expand("~/repos/boilerplate-chorus-backend/"),
+          },
+          action = function(dir)
+            print(dir)
+            vim.fn.chdir(tostring(dir))
+            Snacks.explorer()
+          end,
+        },
         {
           pane = 2,
           icon = " ",

@@ -9,5 +9,5 @@ return {
         "NormalFloat",
       },
     })
-  end,
+  end
 }

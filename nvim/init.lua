@@ -1,10 +1,23 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
+-- Load Lazy plugins init state
 require("config.lazy")
 
-function Transparent(color)
-  color = color or "tokyonight"
-  vim.cmd.colorscheme(color)
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-Transparent()
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup(
+    "kickstart-highlight-yank",
+    { clear = true }
+  ),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Disable auto-commenting on newline",
+  callback = function()
+    vim.opt_local.formatoptions = vim.opt_local.formatoptions
+      - "c" -- auto-wrap comments using textwidth
+      - "r" -- continue comments when pressing Enter
+      - "o" -- continue comments when using 'o' or 'O'
+  end,
+})

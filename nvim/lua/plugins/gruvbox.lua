@@ -1,23 +1,24 @@
-return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup({
-        terminal_colors = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        inverse = true,
-        transparent_mode = true,
-      })
-      vim.cmd.colorscheme("gruvbox")
-    end,
-  },
-}
+return {}
+-- return {
+--   {
+--     "ellisonleao/gruvbox.nvim",
+--     config = function()
+--       require("gruvbox").setup({
+--         terminal_colors = true,
+--         underline = true,
+--         bold = true,
+--         italic = {
+--           strings = true,
+--           emphasis = true,
+--           comments = true,
+--           operators = false,
+--           folds = true,
+--         },
+--         strikethrough = true,
+--         inverse = true,
+--         transparent_mode = true,
+--       })
+--       vim.cmd.colorscheme("gruvbox")
+--     end,
+--   },
+-- }

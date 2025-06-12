@@ -15,6 +15,9 @@ return {
           graphql = {
             "prettier",
           },
+          proto = {
+            "buf",
+          },
         },
         format_on_save = {
           timeout_ms = 500,

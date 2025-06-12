@@ -11,20 +11,21 @@ return {
   },
   config = function()
     require("telescope").setup({
-      defaults = {
-        mappings = {
-          n = {
-            ["dd"] = require("telescope.actions").delete_buffer,
-          },
-          i = {
-            ["dd"] = require("telescope.actions").delete_buffer,
-          },
-        },
-      },
       pickers = {
+        git_files = {
+          theme = "ivy",
+          hidden = false,
+        },
+        buffers = {
+          theme = "ivy",
+          hidden = false,
+        },
         find_files = {
           theme = "ivy",
           hidden = true,
+          layout_config = {
+            height = 54,
+          },
         },
       },
       extensions = { fzf = {} },

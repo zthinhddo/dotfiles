@@ -21,10 +21,3 @@ vim.api.nvim_create_autocmd("FileType", {
       - "o" -- continue comments when using 'o' or 'O'
   end,
 })
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  desc = "Fire event when switch to a buffer",
-  callback = function()
-    print("Buffer name: " .. vim.fn.expand("%"))
-  end,
-})

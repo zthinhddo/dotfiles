@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    -- This one disable the warning for vim global variable
     {
       "folke/lazydev.nvim",
       ft = "lua",

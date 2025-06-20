@@ -1,4 +1,10 @@
 -- LSP
+vim.keymap.set("n", "<leader>fm", function()
+  require("telescope.builtin").lsp_document_symbols({
+    symbols = { "function", "method" },
+  })
+end)
+
 vim.keymap.set(
   { "i" },
   "<C-n>",
@@ -96,13 +102,13 @@ vim.keymap.set("n", "<leader>nc", function()
 end)
 vim.keymap.set(
   "n",
-  "gD",
+  "gd",
   telescope_builtin.lsp_definitions,
   { desc = "Go to definitions" }
 )
 vim.keymap.set(
   "n",
-  "gd",
+  "gr",
   telescope_builtin.lsp_references,
   { desc = "Go to references" }
 )
@@ -188,3 +194,25 @@ vim.keymap.set(
   "<cmd>bN<cr>",
   { desc = "To previous buffer" }
 )
+
+-- ===== Rename incremnt ====
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+-- ===== Rename incremnt ====
+
+-- ===== Copilot Chat =====
+vim.keymap.set(
+  "n",
+  "<leader>cp",
+  "<cmd>CopilotChatPrompts<cr>",
+  { desc = "Open Copilot chat prompts" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>co",
+  "<cmd>CopilotChatOpen<cr>",
+  { desc = "Open Copilot chat window" }
+)
+-- ===== Copilot Chat =====

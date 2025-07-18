@@ -1,5 +1,6 @@
 return {
   "xiyaowong/transparent.nvim",
+  enabled = false,
   lazy = false, -- Avoid lazy loading for consistent loading
   config = function()
     require("transparent").setup({
@@ -9,5 +10,5 @@ return {
         "NormalFloat",
       },
     })
-  end
+  end,
 }

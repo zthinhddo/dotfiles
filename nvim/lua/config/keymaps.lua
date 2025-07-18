@@ -6,6 +6,13 @@ vim.keymap.set("n", "<leader>fm", function()
 end)
 
 vim.keymap.set(
+  "n",
+  "<leader>oo",
+  "<cmd>OrganizeImports<cr>",
+  { desc = "Auto remove unused imports" }
+)
+
+vim.keymap.set(
   { "i" },
   "<C-n>",
   "<C-x><C-o>",
@@ -47,7 +54,7 @@ end, { desc = "Format file or range (in visual mode)" })
 -- =========== Conform ===========
 
 -- Colorscheme
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme kanagawa")
 
 -- Tmux navigation
 local nvim_tmux_nav = require("nvim-tmux-navigation")

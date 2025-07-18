@@ -1,3 +1,12 @@
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -25,15 +34,17 @@ return {
       )
 
     -- Install lsp server
-    lspconfig.lua_ls.setup({})
-    lspconfig.ts_ls.setup({})
-
-    -- LSP Capabilities
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
     })
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
+      commands = {
+        OrganizeImports = {
+          organize_imports,
+          description = "Organize Imports",
+        },
+      },
     })
   end,
 }

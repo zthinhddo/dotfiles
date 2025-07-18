@@ -1,3 +1,4 @@
+-- Toggle terminal while in editor buffers
 return {
   {
     "akinsho/toggleterm.nvim",

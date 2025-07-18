@@ -27,6 +27,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
     { import = "plugins.lsp" },
+    { import = "plugins.colorschemes" },
   },
   checker = {
     enabled = true, -- check for plugin updates periodically

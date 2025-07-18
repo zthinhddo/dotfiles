@@ -1,3 +1,4 @@
+-- Navigation from nvim to tmux
 return {
   "alexghergh/nvim-tmux-navigation",
   config = function()

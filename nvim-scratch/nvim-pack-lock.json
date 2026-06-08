@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "nvim-tree.lua": {
+      "rev": "07f541fcaa4a5ae019598240362449ab7e9812b3",
+      "src": "https://www.github.com/nvim-tree/nvim-tree.lua"
+    },
+    "nvim-web-devicons": {
+      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+      "src": "https://www.github.com/nvim-tree/nvim-web-devicons"
+    }
+  }
+}

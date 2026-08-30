@@ -1,12 +1,12 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local function map(mode, lhs, rhs, desc)
+  vim.keymap.set(mode, lhs, rhs, desc)
+end
 
 -- Tmux navigator
 local nvim_tmux_nav = require("nvim-tmux-navigation")
-vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
-vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
-vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+map("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+map("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)

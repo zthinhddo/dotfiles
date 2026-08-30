@@ -1,3 +1,4 @@
+-- alskjfalskj
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -41,7 +42,7 @@ return {
         },
         lualine_b = { "branch" },
         lualine_c = { "filename" },
-        lualine_x = { "encoding", "filetype" },
+        lualine_x = { "encoding", "filetype", "fileformat" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

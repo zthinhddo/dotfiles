@@ -5,6 +5,7 @@ return {
       formatters_by_ft = {
         typescript = { "prettierd", "prettier" },
         typescriptreact = { "prettierd", "prettier" },
+        sql = { "pg_format", "pgformatter" },
       },
     })
   end,

@@ -69,32 +69,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Custom
+-------------------------------------------------
+-- Custom keymaps
+-------------------------------------------------
 vim.keymap.set("n", "<leader>pa", function() -- show file path
   local path = vim.fn.expand("%:p")
   vim.fn.setreg("+", path)
   print("file:", path)
 end, { desc = "Copy full file path" })
 
--- Snack header preset color
--- vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#DC7FB4" })
-
--- Colorscheme Configuration
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   pattern = "*",
---   callback = function()
---     -- The highlight groups responsible for the gutter background
---     local gutter_groups = { "LineNr", "SignColumn", "CursorLineNr" }
---
---     for _, group in ipairs(gutter_groups) do
---       -- Fetch the existing highlight definition (to preserve text color/boldness)
---       local hl = vim.api.nvim_get_hl(0, { name = group })
---
---       -- If the group exists, strip its background property
---       if hl then
---         hl.bg = nil
---         vim.api.nvim_set_hl(0, group, hl)
---       end
---     end
---   end,
--- })
+-------------------------------------------------
+-- Custom Highlights
+-------------------------------------------------

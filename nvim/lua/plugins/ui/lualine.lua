@@ -1,18 +1,24 @@
--- alskjfalskj
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {
-    options = {
-      theme = "auto",
-    },
-    sections = {},
+  dependencies = {
+    "nvim-mini/mini.icons",
   },
+  opts = {},
   config = function()
-    local config = require("lualine")
+    -- Replace web-icons-dev to mini.icons (migrate to MACOS)
+    local mini_configs = require("mini.icons")
+    mini_configs.setup()
+    mini_configs.mock_nvim_web_devicons()
 
+    local config = require("lualine")
+    local custom_dragon_theme = require("plugins.colorschemes.customs.lualine_kanagawa")
+
+    -- init config
     config.setup({
+      options = {
+        theme = custom_dragon_theme,
+      },
       sections = {
         lualine_a = {
           function()
@@ -42,8 +48,8 @@ return {
         },
         lualine_b = { "branch" },
         lualine_c = { "filename" },
-        lualine_x = { "encoding", "filetype", "fileformat" },
-        lualine_y = { "progress" },
+        lualine_x = { "filetype", "fileformat" },
+        lualine_y = { "encoding" },
         lualine_z = { "location" },
       },
     })

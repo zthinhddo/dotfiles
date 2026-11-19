@@ -10,3 +10,7 @@ map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
 map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
 map("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
 map("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+
+-- Harpoon
+-- map("n", "<leader>H", require("harpoon.mark").add_file(), "Harpoon current file")
+-- map("n", "<leader>h", require("harpoon.ui").toggle_quick_menu(), "Toglge harpoon file menu")

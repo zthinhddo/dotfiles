@@ -19,6 +19,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "kanagawa-dragon" } },
     -- import/override with your plugins
+    { import = "plugins/lsp" },
     { import = "plugins/ai" },
     { import = "plugins/ui" },
     { import = "plugins/editor" },

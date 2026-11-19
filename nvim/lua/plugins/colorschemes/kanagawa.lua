@@ -11,6 +11,7 @@ return {
     })
   end,
   opts = {
+    transparent = false,
     statementStyle = { bold = false },
     colors = {
       theme = {

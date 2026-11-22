@@ -9,6 +9,7 @@ opt.cursorlineopt = "number"
 opt.signcolumn = "yes"
 opt.winborder = "rounded" -- Neovim 0.12 native border for floating windows
 opt.showmode = false -- Mode is displayed in lualine
+opt.cmdheight = 0 -- Hide reserved cmdline row (handled dynamically by Neovim 0.12 ui2)
 opt.laststatus = 3 -- Global statusline
 opt.conceallevel = 1
 opt.splitbelow = true

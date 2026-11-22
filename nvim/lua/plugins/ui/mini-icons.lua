@@ -1,7 +1,7 @@
 return {
   "nvim-mini/mini.icons",
   lazy = false,
-  priority = 900,
+  priority = 1100,
   opts = {
     style = "glyph",
   },

@@ -7,10 +7,6 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Neovim 0.12 built-in opt-in packages (:Undotree, :DiffTool)
-pcall(vim.cmd.packadd, "nvim.undotree")
-pcall(vim.cmd.packadd, "nvim.difftool")
-
 -- Core configuration (options before ui2 & plugins so cmdheight = 0 is active)
 require("config.options")
 
@@ -29,3 +25,8 @@ require("config.autocmds")
 require("config.keymaps")
 require("config.lsp")
 require("config.lazy")
+
+-- Neovim 0.12 built-in opt-in packages (:Undotree, :DiffTool)
+-- Must run AFTER lazy.nvim so its runtimepath reset does not strip these opt packages
+pcall(vim.cmd.packadd, "nvim.undotree")
+pcall(vim.cmd.packadd, "nvim.difftool")

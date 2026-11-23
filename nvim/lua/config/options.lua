@@ -18,6 +18,7 @@ opt.pumblend = 10
 opt.pumheight = 12
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.cmdheight = 0 --  hide command line unless needed
 
 -- Editing & Indentation
 opt.expandtab = true

@@ -4,20 +4,28 @@ return {
   dependencies = {
     "nvim-mini/mini.icons",
   },
-  opts = {},
-  config = function()
-    -- Replace web-icons-dev to mini.icons (migrate to MACOS)
-    local mini_configs = require("mini.icons")
-    mini_configs.setup()
-    mini_configs.mock_nvim_web_devicons()
+  opts = function()
+    -- local custom_dragon_theme = require("plugins.colorschemes.customs.lualine_kanagawa")
 
-    local config = require("lualine")
-    local custom_dragon_theme = require("plugins.colorschemes.customs.lualine_kanagawa")
+    local mode_map = {
+      n = "NORMAL",
+      i = "INSERT",
+      v = "VISUAL",
+      V = "V-LINE",
+      ["\22"] = "V-BLOCK",
+      c = "COMMAND",
+      R = "REPLACE",
+      s = "SELECT",
+      S = "S-LINE",
+      ["\19"] = "S-BLOCK",
+      t = "TERMINAL",
+    }
 
-    -- init config
-    config.setup({
+    return {
       options = {
-        theme = custom_dragon_theme,
+        -- theme = custom_dragon_theme,
+        theme = "auto",
+        globalstatus = true,
       },
       sections = {
         lualine_a = {
@@ -25,33 +33,24 @@ return {
             local reg = vim.fn.reg_recording()
             if reg ~= "" then
               return "Rec @" .. reg
-            else
-              local mode = vim.api.nvim_get_mode().mode
-              local mode_map = {
-                n = "NORMAL",
-                i = "INSERT",
-                v = "VISUAL",
-                V = "V-LINE",
-                ["^V"] = "V-BLOCK",
-                c = "COMMAND",
-                R = "REPLACE",
-                s = "SELECT",
-                S = "S-LINE",
-                ["^S"] = "S-BLOCK",
-                t = "TERMINAL",
-              }
-
-              -- Return mode name
-              return mode_map[mode] or mode:upper()
             end
+            local mode = vim.api.nvim_get_mode().mode
+            return mode_map[mode] or mode:upper()
           end,
         },
-        lualine_b = { "branch" },
-        lualine_c = { "filename" },
-        lualine_x = { "filetype", "fileformat" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { { "filename", path = 1 } },
+        lualine_x = {
+          -- Native Neovim 0.12 LSP progress status (replaces noice.nvim progress spinner)
+          function()
+            return vim.ui.progress_status and vim.ui.progress_status() or ""
+          end,
+          "filetype",
+          "fileformat",
+        },
         lualine_y = { "encoding" },
         lualine_z = { "location" },
       },
-    })
+    }
   end,
 }

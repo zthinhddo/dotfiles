@@ -1,15 +1,6 @@
+-- Provides default lsp/<server>.lua definitions consumed natively by Neovim 0.12
+-- Custom overrides live in after/lsp/<server>.lua
 return {
   "neovim/nvim-lspconfig",
-  opts = {
-    servers = {
-      vtsls = {
-        watchFiles = {
-          exclude = {
-            "**/.next/**",
-            "**/node_modules/**",
-          },
-        },
-      },
-    },
-  },
+  event = { "BufReadPre", "BufNewFile" },
 }

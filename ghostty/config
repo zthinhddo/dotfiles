@@ -1,0 +1,25 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size = 18
+macos-option-as-alt = true
+
+# Ghostty Kanagawa Dragon Theme
+# theme = Kanagawa Dragon
+# theme = Solarized Osaka Night
+# theme = Solarized Dark Patched
+theme = Solarized Osaka Dark - Patched
+background-opacity = 0.8
+background-blur-radius = 20
+
+### Twerking for the sake of MacOS
+# keybind = cmd+/=text:\x02
+keybind = cmd+'=text:\x02
+# keybind = option+backspace=text:\x1b\x7f
+
+### Default Settings
+command = /bin/zsh
+
+# Navigate splits using custom keybindings
+keybind = cmd+shift+h=goto_split:left
+keybind = cmd+shift+j=goto_split:down
+keybind = cmd+shift+k=goto_split:up
+keybind = cmd+shift+l=goto_split:right

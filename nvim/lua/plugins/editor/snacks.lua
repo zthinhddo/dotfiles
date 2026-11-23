@@ -41,7 +41,20 @@ return {
       enabled = true,
       hidden = true,
       ignored = false,
+      matcher = {
+        frecency = {
+          enabled = true,
+          ignore_patterns = { "*/.git/*", "*/node_modules/*" },
+        },
+      },
       sources = {
+        files = {
+          transform = function(item)
+            if item.file and (item.file:match("%.spec%.")) then
+              item.score_mul = 0.5
+            end
+          end,
+        },
         explorer = {
           enabled = true,
           auto_close = true,

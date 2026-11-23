@@ -5,7 +5,7 @@ return {
     "nvim-mini/mini.icons",
   },
   opts = function()
-    local custom_dragon_theme = require("plugins.colorschemes.customs.lualine_kanagawa")
+    -- local custom_dragon_theme = require("plugins.colorschemes.customs.lualine_kanagawa")
 
     local mode_map = {
       n = "NORMAL",
@@ -23,7 +23,8 @@ return {
 
     return {
       options = {
-        theme = custom_dragon_theme,
+        -- theme = custom_dragon_theme,
+        theme = "auto",
         globalstatus = true,
       },
       sections = {

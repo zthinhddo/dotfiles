@@ -68,13 +68,17 @@ map("n", "<leader>L", "<cmd>Lazy<cr>", "Open Lazy")
 
 -- Native Neovim 0.12 Insert Completion, Inline Completion (Copilot), and Snippets
 map("i", "<C-Space>", "<C-x><C-o>", "Trigger LSP completion")
-
 map("i", "<CR>", function()
   if vim.fn.pumvisible() == 1 and vim.fn.complete_info({ "selected" }).selected ~= -1 then
     return "<C-y>"
   end
+
+  local mini_pairs = package.loaded["mini.pairs"]
+  if mini_pairs then
+    return mini_pairs.cr()
+  end
   return "<CR>"
-end, { expr = true, desc = "Confirm selected completion or newline" })
+end, { expr = true, replace_keycodes = true, desc = "Confirm selected completion or newline" })
 
 map({ "i", "s" }, "<Tab>", function()
   if vim.lsp.inline_completion and vim.lsp.inline_completion.get() then

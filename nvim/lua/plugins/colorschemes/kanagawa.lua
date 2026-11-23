@@ -2,6 +2,7 @@ return {
   "rebelot/kanagawa.nvim",
   lazy = false,
   priority = 1000,
+  enabled = false,
   opts = {
     transparent = false,
     statementStyle = { bold = false },

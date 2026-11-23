@@ -27,7 +27,7 @@ require("lazy").setup({
     version = false, -- Always use the latest git commit
   },
   install = {
-    colorscheme = { "kanagawa-dragon", "habamax" },
+    colorscheme = { "solarized-osaka", "habamax" },
   },
   checker = {
     enabled = true,
